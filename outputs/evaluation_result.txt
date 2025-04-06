@@ -1,0 +1,4 @@
+Evaluation Results:
+ - MAE  : 0.8992
+ - RMSE : 1.0357
+ - R²   : 0.2130
