@@ -14,3 +14,4 @@ pydub
 torch
 torchaudio
 transformers
+joblib==1.4.0
