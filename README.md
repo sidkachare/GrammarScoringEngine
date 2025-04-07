@@ -58,5 +58,70 @@ This project builds a **regression model** to predict **grammar proficiency scor
     The evaluation results and visualizations are stored in the outputs folder.
 
 
+# Project Report
+
+### Dataset Overview:
+--Train Set: 444 audio files + train.csv (contains file_name and label)
+
+--Test Set: 195 audio files + test.csv (contains file_name)
+
+--Each audio file is between 45 to 60 seconds long.
+
+### Pipeline Architecture:
+The entire pipeline was modularized and built with reusability in mind:
+
+1. Data Ingestion
+2. Audio Feature Extraction
+3. Model Training
+4. Model Evaluation
+5. Test Set Prediction
+
+
+### Preprocessing & Feature Extraction
+Each audio file is preprocessed and converted into numeric features for model input. We extract the following features:
+
+--MFCCs (13) – Capture spectral structure
+
+--Zero-Crossing Rate (ZCR) – Voicing and energy content
+
+--Root Mean Square Energy (RMSE) – Loudness
+
+--Spectral Centroid – Brightness of audio
+
+--Pitch – Average pitch across the clip
+
+### Model Training
+Model Used: RandomForestRegressor from sklearn.ensemble
+
+Train-Test Split: 80–20 (using train_test_split)
+
+Hyperparameters: Default settings (can be tuned later)
+
+Model trained on train_features.csv where:
+
+Features: 17 extracted audio-based features
+
+Target: label (grammar score)
+
+The trained model was saved as random_forest_regressor.pkl.
+
+### Model Evaluation
+Evaluation was performed on the validation split using:
+Metric:
+--MAE (Mean Absolute Error)
+--RMSE (Root Mean Squared Error)
+--R² Score
+
+### Conclusion
+This project demonstrates a complete pipeline for scoring spoken grammar proficiency using raw audio. It includes audio preprocessing, feature engineering, regression modeling, evaluation, and prediction.
+
+Further enhancements can include:
+--Using deep learning or transformer based architectures.
+--Text-based grammar scoring (via ASR → NLP).
+--Model ensembling.
+--Real-time feedback loop for learning improvement.
+
+## Thank You!
+
 
 
